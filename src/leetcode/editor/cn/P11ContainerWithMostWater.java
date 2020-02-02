@@ -44,19 +44,52 @@ class Solution {
 //    }
 
     //方法二（双指针）： 夹逼法思路
+//    public int maxArea(int[] height) {
+//        int max = 0, i = 0, j = height.length - 1;
+//        for (; i < j;) {
+//            if (max < Math.min(height[i],height[j])*(j-i)) {
+//                max = Math.min(height[i],height[j])*(j-i);
+//            }
+//            if (height[i] > height[j]) j--;
+//            else i++;
+//        }
+//        return max;
+//    }
+
+
     public int maxArea(int[] height) {
-        int max = 0, i = 0, j = height.length - 1;
-        for (; i < j;) {
-            if (max < Math.min(height[i],height[j])*(j-i)) {
-                max = Math.min(height[i],height[j])*(j-i);
-            }
-            if (height[i] > height[j]) j--;
-            else i++;
+        int n = 0, m = height.length-1, max = 0;
+        while (n < m) {
+            int area = Math.min(height[n],height[m])*(m-n);
+            if (max < area) max = area;
+            if (height[n] > height[m]) m--; else n++;
         }
         return max;
     }
 
 }
 //leetcode submit region end(Prohibit modification and deletion)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
